@@ -44,7 +44,6 @@ jobs:
 
     - name: Test Model
       run: python test.py
-      name: Upload breast_cancer_model result for job 2
       uses: actions/upload-artifact@v3
       with:
         name: breast_cancer_model
