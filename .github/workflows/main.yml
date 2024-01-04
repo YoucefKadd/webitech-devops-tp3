@@ -42,9 +42,10 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
+    - name:  Download math result for avant
+      uses: actions/download-artifact@v3
+        with:
+          name: breast_cancer_model
+
     - name: Test Model
       run: python test.py
-      uses: actions/upload-artifact@v3
-      with:
-        name: breast_cancer_model
-        path: breast_cancer_model.pkl
