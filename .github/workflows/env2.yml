@@ -1,0 +1,34 @@
+name: Greeting Global
+
+on:
+  workflow_dispatch:
+
+env:
+  GREETING_GLOBAL: "Hello from Global!"
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    env:
+      GREETING_JOB: "Hi from Job 1"
+
+    steps:
+    - name: Afficher Greeting Global dans le job 1
+      run: echo $GREETING_GLOBAL
+
+    - name: Afficher Greeting Job dans le job 1
+      run: echo $GREETING_JOB
+
+  job2:
+    runs-on: ubuntu-latest
+
+    env:
+      GREETING_JOB: "Hola from Job 2"
+
+    steps:
+    - name: Afficher Greeting Global dans le job 2
+      run: echo $GREETING_GLOBAL
+
+    - name: Afficher Greeting Job dans le job 2
+      run: echo $GREETING_JOB
