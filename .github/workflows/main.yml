@@ -3,7 +3,7 @@ name: Prédiction de Cancer Workflow
 on: 
   push:
     tags:
-      -'v*'
+      - 'v*'
 
 jobs:
   build:
