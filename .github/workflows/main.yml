@@ -7,21 +7,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Train Model
-      run: python bcancer.py
-      uses: actions/upload-artifact@v3
-      with:
+      - name: Train Model
+        run: python bcancer.py
+        uses: actions/upload-artifact@v3
+        with:
           name: breast_cancer_model
           path: breast_cancer_model.pkl
 
@@ -31,21 +31,21 @@ jobs:
     needs: build
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+      - name: Download math result for avant
+        uses: actions/download-artifact@v3
+        with:
+          name: breast_cancer_model
 
-    - name: Download math result for avant
-      uses: actions/download-artifact@v3
-      with:
-        name: breast_cancer_model
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Test Model
-      run: python test.py
+      - name: Test Model
+        run: python test.py
