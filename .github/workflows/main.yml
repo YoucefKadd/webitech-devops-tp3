@@ -1,7 +1,9 @@
 name: Prédiction de Cancer Workflow
 
 on: 
-  workflow_dispatch:
+  push:
+    tags:
+      -'v*'
 
 jobs:
   build:
