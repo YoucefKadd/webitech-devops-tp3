@@ -8,7 +8,7 @@ with open('breast_cancer_model.pkl', 'rb') as model_file:
 
 # Charger ou préparer les données de test
 test_data_url = "https://raw.githubusercontent.com/AbdallahTayeb/DevOps-Course/main/sample.csv"
-test_data = pd.read_csv(test_data_url)
+test_data = pd.read_csv(test_data_url, sep=";")
 
 # Faire des prédictions
 X_test = test_data.drop('target', axis=1)
