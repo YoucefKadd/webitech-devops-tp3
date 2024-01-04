@@ -46,6 +46,6 @@ jobs:
       run: python test.py
       name: Upload breast_cancer_model result for job 2
       uses: actions/upload-artifact@v3
-        with:
-          name: breast_cancer_model
-          path: breast_cancer_model.pkl
+      with:
+        name: breast_cancer_model
+        path: breast_cancer_model.pkl
